@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opettajan esimerkki - harjoitus 9</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../kevat.html">&#8592; Takaisin harjoituksiin</a></li>
+        <li><a href="../../index.html">&#8592; Takaisin etusivulle</a></li>
+      </ul>
+    </nav>
+
+    <p>Tehtävä löytyy konsolista</p>
+
+    <script defer>
+      const nimet = ["Tapio", "Leela", "Matti", "Antti"];
+      console.log("nimet: ", nimet);
+      console.log("Toisen indeksin nimi on: ", nimet[2]);
+      console.log("listan pituus: ", nimet.length);
+      console.log("viimeinen listan nimi on: ", nimet[nimet.length - 1]);
+      nimet.push("Pekka");
+      console.log("listan lisätty uusi nimi: ", nimet);
+      console.log("Uusi lista erottu tilaalta: ", nimet.join(" "));
+      nimet.splice(2, 1, "Liisa", "Laila");
+      console.log("Uudet nimet Maattin tilalla: ", nimet);
+      console.log("Leelan indeksi:", nimet.indexOf("Leela"));
+      //part2
+      nimet.sort();
+      console.log("Nimet aakkosjärjestyksessä: ", nimet);
+      const numerot = [1, 7, 45, 32, 27, 86];
+      numerot.sort((a, b) => a - b);
+      console.log("Numerot suuruusjärjestyksessä: ", numerot);
+      numerot.sort(() => Math.random() - 0.5);
+      console.log("Numerot satunnaisessa järjestyksessä: ", numerot);
+      const minimi = Math.min(...numerot);
+      const maximi = Math.max(...numerot);
+      console.log("Pienin luku: ", minimi);
+      console.log("Suurin luku: ", maximi);
+      const parilliset = numerot.filter((num) => num % 2 === 0);
+      console.log("Parilliset luvut: ", parilliset);
+      const aineet = ["matikka", "kemia", "ohjelmoinnin perusteet", "englanti"];
+      aineet.forEach((aine) => {
+        console.log("Jeejee " + aine);
+      });
+      const onkoruotsi = aineet.includes("ruotsi");
+      console.log("Löytyykö ruotsi: ", onkoruotsi);
+    </script>
+
+    <footer>Ivan Astashov &copy; 2026</footer>
+  </body>
+</html>

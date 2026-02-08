@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>harjoitus 1</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <script>
+      var lightState = -1;
+      function toggleLight() {
+        lightState = lightState === -1 ? 1 : -1;
+        var img = document.getElementById('bulboff');
+        img.src = lightState === -1 ? '../../kuvat/pic_bulboff.png' : '../../kuvat/pic_bulbon.png';
+      }
+    </script> 
+  </head>
+  <body>
+    <h2>What can JavaScript do?</h2>
+
+    <div class ="js-esimerkki">
+      <p id="demo">
+        JavaScript can change HTML content. The example below "finds" an HTML
+        element (with id="demo"), and changes the element content (innerHTML) to
+        "Hello JavaScript":
+      </p>
+      
+      <button
+        type="button"
+        onclick="document.getElementById('demo').innerHTML = 'Hello JavaScript!';">
+        Click me!
+      </button>
+
+    </div>
+
+
+
+    <p>
+      Also JavaScript accepts both double and single quotes. So the example:
+      onclick="document.getElementById('demo').innerHTML = 'Hello JavaScript!';" or
+      onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!";'
+    </p>
+    
+    <div class ="js-esimerkki">
+      <p id="demo2">
+        JavaScript Can Toggle Light Based on State
+        In this example JavaScript toggles a state variable between -1 (off) and 1 (on),
+        and changes the image src accordingly:
+      </p>
+
+
+      <img
+        id="bulboff"
+        src="../../kuvat/pic_bulboff.png"
+        alt="bulb off"
+        width="100px"
+      />
+
+      <button
+        type="button"
+        onclick="toggleLight();">
+        Toggle Light
+      </button>
+
+
+      
+    </div>
+
+
+
+    </p>
+
+
+    <nav>
+      <ul>
+        <li><a href="../kevat.html">&#8592; Takaisin harjoituksiin</a></li>
+        <li><a href="../../index.html">&#8592; Takaisin etusivulle</a></li>
+      </ul>
+    </nav>
+
+    <p>Tämä harjoitus on vielä työn alla</p>
+
+    <footer>Ivan Astashov &copy; 2026</footer>
+  </body>
+</html>

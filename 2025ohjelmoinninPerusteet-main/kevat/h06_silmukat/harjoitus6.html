@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opettajan esimerkki - harjoitus 6</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="h6script.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../kevat.html">&#8592; Takaisin harjoituksiin</a></li>
+        <li><a href="../../index.html">&#8592; Takaisin etusivulle</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h2>Funktiot</h2>
+      <div id="luku"></div>
+      <p>
+        <button onclick="parillisetLuvut()">Parilliset luvut</button>
+        <button onclick="x10()">kertaa 10</button>
+        <button onclick="vaihdaLuku()">Vaihda luku</button>
+      </p>
+    </div>
+
+    <div class="container">
+      <h2>Osa 2</h2>
+      <script src="h6script2.js" defer></script>
+      <div id="numlist">0</div>
+      <div id="sum">0</div>
+      <div id="average">0</div>
+      <p>
+        <button onclick="addnum()">Lisää luku</button>
+        <button onclick="calculateSum()">Laske summa</button>
+        <button onclick="calculateAverage()">Laske keskiarvo</button>
+      </p>
+
+      <h3>Luvun arvaaminen</h3>
+      <script src="h6script3.js" defer></script>
+      <div id="guessNumber"></div>
+      <p>
+        <button onclick="startgame()">Aloita peli</button>
+      </p>
+    </div>
+
+    <footer>Ivan Astashov &copy; 2026</footer>
+  </body>
+</html>

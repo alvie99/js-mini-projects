@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opettajan esimerkki - harjoitus 8</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../kevat.html">&#8592; Takaisin harjoituksiin</a></li>
+        <li><a href="../../index.html">&#8592; Takaisin etusivulle</a></li>
+      </ul>
+    </nav>
+
+    <p>harjoitus 8</p>
+
+    <div class="container">
+      <h1>Numerotehtävät</h1>
+      <input type="text" id="input1" />
+      <button onclick="numfunction()">Anna luku 1-10 välillä</button>
+      <div id="output1"></div>
+      <script>
+        function numfunction() {
+          const input = document.getElementById("input1").value;
+          const outputDiv = document.getElementById("output1");
+          const number = parseFloat(input);
+
+          if (isNaN(number)) {
+            outputDiv.textContent = "Syötä numero ei muta tekstiä.";
+          } else if (isNaN(number) || number < 1 || number > 10) {
+            outputDiv.textContent = "Luku ei ole 1-10 välillä.";
+          } else {
+            outputDiv.textContent = "Luku on " + number;
+          }
+          const numbersquare = Math.sqrt(number).toFixed(2);
+          outputDiv.textContent += ", luvun neliöjuuri on: " + numbersquare;
+          const randomnumber = Math.floor(Math.random() * 10);
+          outputDiv.textContent += ", arvottu luku on: " + randomnumber;
+          const biggestnum = Math.max(number, randomnumber);
+          outputDiv.textContent += ", luvuista suurempi on: " + biggestnum;
+        }
+      </script>
+    </div>
+
+    <div class="container">
+      <h1>Merkkijonotehtävät</h1>
+      <button onclick="showAlphabet()">Näytä aakkoset</button>
+      <button onclick="countLetters()">Laske kirjaimet</button>
+      <div id="akkosteetDiv"></div>
+      <div id="countLettersDiv"></div>
+      <script>
+        function showAlphabet() {
+          const alphabet =
+            "A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, Å, Ä, Ö";
+          document.getElementById("akkosteetDiv").textContent = alphabet;
+        }
+        function countLetters() {
+          const alphabet =
+            "A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, Å, Ä, Ö";
+          const letters = alphabet.split(", ");
+          const letterCount = letters.join("").length;
+          document.getElementById("countLettersDiv").textContent =
+            "Suomalaisia akkosia on " + letterCount + " kpl.";
+        }
+      </script>
+
+      <h2>Merkkijonojen muokkaus</h2>
+      <div id="tekstiDiv"></div>
+      <div id="tekstiDiv2"></div>
+      <div id="tekstiDiv3"></div>
+
+      <button onclick="findIndexof()">
+        Etsi sanaan "ohjelmoida" ensimmäinen kirjain
+      </button>
+
+      <script>
+        // original text
+        const teksti =
+          "Ohjelmistokehittäjä osaa ohjelmoida, hyödyntää rajapintoja, käsitellä tietoa sekä käyttää versionhallintaa. Ohjelmistokehitystiimin jäsenenä toimiessaan hän kommunikoi asiakkaan kanssa, suunnittelee ohjelmiston toteutuksen ja varmistaa toteutettavien toimintojen laadun.";
+        // show first half of the text
+        document.getElementById("tekstiDiv").textContent =
+          "Tekstin alkupuolisko:\n" + teksti.slice(0, 107);
+        // show second half of the text
+        document.getElementById("tekstiDiv2").textContent =
+          "Tekstin loppupuolisko:\n " + teksti.slice(107);
+
+        // find index of the word "ohjelmoida"
+        function findIndexof() {
+          const index = teksti.indexOf("ohjelmoida");
+
+          document.getElementById("tekstiDiv3").textContent =
+            `Sana "ohjelmoida" alkaa kohdasta: ${index}`;
+        }
+        // replace "versionhallintaa" with "versionhallintaa (esimerkiksi GitHub)"
+        const muokattuTeksti =
+          "Teksti muokkauksen jälkeen:\n" +
+          teksti.replace(
+            "versionhallintaa",
+            "versionhallintaa (esimerkiksi GitHub)",
+          );
+        // show modified text
+        document.getElementById("tekstiDiv4").textContent = muokattuTeksti;
+      </script>
+
+      <h2>Syötä viisi lukua pilkulla eroteltuna</h2>
+
+      <input type="text" id="numbersInput" placeholder="Esim. 1,2,3,4,5" />
+      <button onclick="sumNumbers()">Laske summa</button>
+
+      <div id="tekstiDiv4"></div>
+
+      <script>
+        function sumNumbers() {
+          const input = document.getElementById("numbersInput").value;
+          // separate string on "," to make a string massive
+          const parts = input.split(",");
+          let sum = 0;
+
+          // sum cycle
+          for (let i = 0; i < parts.length; i++) {
+            const number = parseInt(parts[i]);
+
+            sum += number;
+          }
+
+          // output result
+          document.getElementById("tekstiDiv4").textContent =
+            "Lukujen summa on: " + sum;
+        }
+      </script>
+    </div>
+    <footer>Ivan Astashov &copy; 2026</footer>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opettajan esimerkki - harjoitus 7</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <style>
+      button {
+        padding: 12px 24px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../kevat.html">&#8592; Takaisin harjoituksiin</a></li>
+        <li><a href="../../index.html">&#8592; Takaisin etusivulle</a></li>
+      </ul>
+    </nav>
+    <div class="container"> 
+
+
+      <h3>tervehdiNimilla</h3>
+      <p>
+        <label for="nimi">Anna nimesi: </label>
+        <input type="text" id="nimi" />
+        <button onclick="tervehdiNimilla()">Tervehdi</button>
+        <p id="tervehdys"></p>
+        <script>
+          function tervehdiNimilla() {
+            const nimi = document.getElementById("nimi").value;
+            const tervehdysDiv = document.getElementById("tervehdys");
+            tervehdysDiv.textContent = `Hei, ${nimi}!`;
+            console.log(`Tervehdys lähetetty nimellä: ${nimi}`);
+          }
+        </script>
+      </p>
+
+
+      <h3>Vaihda taustavari</h3>
+      <p>
+        <div>Punainen</div>
+        <button onclick ="vaihdaTaustavari('red')" style="background-color: red;"></button>
+        <div>Sininen</div>
+        <button onclick ="vaihdaTaustavari('blue')" style="background-color: blue;"></button>
+        <div>Vihreä</div>
+        <button onclick ="vaihdaTaustavari('green')" style="background-color: green;"></button>
+        <div>Valkoinen</div>
+        <button onclick ="vaihdaTaustavari('white')" style="background-color: white;"></button>
+        <script>
+          function vaihdaTaustavari(vari) {
+            document.body.style.backgroundColor = vari;
+            console.log(`Taustaväri vaihdettu: ${vari}`);
+          }
+        </script>
+      </p>
+
+
+      <h3>Fahrenheit Celsius</h3>
+      <p>
+        <label for ="fahrenheit" >Anna lämpötila Fahrenheit-asteina: </label>
+        <input type ="number" id="fahrenheit" />
+        <button onclick ="fahrenheitCelsius()">Muuta Celsius-asteiksi</button>
+        <p id="celsiusTulos"></p>
+        <script>
+          function fahrenheitCelsius(fahr) {
+            const fahrInput = document.getElementById("fahrenheit").value;
+            const celsius = ((fahrInput - 32)) * 5 / 9;
+            const celsiusTulosDiv = document.getElementById("celsiusTulos");
+            celsiusTulosDiv.textContent = `${fahrInput}°F on ${celsius.toFixed(2)}°C`;
+            console.log(`Muunnettu ${fahrInput}°F -> ${celsius.toFixed(2)}°C`);
+          }
+        </script>
+      </p>
+
+      <h3>Pienin Taulukosta</h3>
+      <label for="lukutaulukko">Anna luku-taulukko (esim. 1,2,3...)</label>
+      <input type="text" id="lukutaulukko" />
+      <button onclick="pieninTaulukosta()">Etsi pienin luku</button>
+      <p id="pieninTaulukosta"></p>
+      <script>
+        function pieninTaulukosta(lukutaulukko) {
+          const taulukkoInput = document.getElementById("lukutaulukko").value;
+          const luvut = taulukkoInput.split(",")
+          for (let i = 0; i < luvut.length; i++) {
+            luvut[i] = parseFloat(luvut[i]);
+          }
+          let pienin = luvut[0];
+          for (let i = 1; i < luvut.length; i++) {
+            if (luvut[i] < pienin) {
+              pienin = luvut[i];
+            }
+          }
+          const pieninDiv = document.getElementById("pieninTaulukosta");
+          pieninDiv.textContent = `Pienin luku taulukosta [${taulukkoInput}] on ${pienin}`;
+          console.log(`Pienin luku taulukosta [${taulukkoInput}] on ${pienin}`);
+        }
+
+      </script>
+      <h3>Valuutta Muotoilija</h3>
+      <p>
+        <label for="maara">Anna summa:</label>
+        <input type ="text" id="maara" />
+        <button onclick ="valuuttaMuotoilija()">Muotoile valuutta</button>
+        <p id = "valuuttaTulos"></p>
+
+
+        <script>
+          function valuuttaMuotoilija() {
+            const maara = document.getElementById("maara").value;
+            const tulos = valuuttaMuotoilujaHelper(maara, "$", true);
+            document.getElementById("valuuttaTulos").textContent = tulos;
+            console.log(`Muotoiltu summa: ${tulos}`);
+          }
+
+          function valuuttaMuotoilujaHelper(maara, symboli, prefiksi) {
+            if (prefiksi) {
+              return symboli + maara;
+
+            } else {
+              return maara + symboli;
+            }
+
+          }
+        </script>
+
+      </p>
+
+    </div>
+
+
+      </p>
+    <footer>Ivan Astashov &copy; 2026</footer>
+  </body>
+</html>

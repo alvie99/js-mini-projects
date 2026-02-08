@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opettajan esimerkki - harjoitus 14</title>
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    label {
+        display: inline-block;
+        width: 150px;
+    }
+    .virhe {
+        color: #ff0000;
+        padding-left: 10px;
+    }
+    .piilotettu {
+        display: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+      <ul>
+        <li><a href="../kevat.html">&#8592; Takaisin harjoituksiin</a> </li> 
+        <li><a href="../../index.html">&#8592; Takaisin etusivulle</a> </li> 
+      </ul>
+  </nav>
+  
+
+  <p>Tämä harjoitus on vielä työn alla</p>
+
+
+  <form id="lomake">
+    <p><label for="nimi">Nimi: </label><input type="text" id="nimi"><span id="virhe-nimi" class="virhe"></span></p>
+    <p><label for="sposti">Sähköposti: </label><input type="text" id="sposti"><span id="virhe-sposti" class="virhe"></span></p>
+    <p><label for="salasana">Salasana: </label><input type="password" id="salasana"><span id="virhe-salasana" class="virhe"></span></p>
+    <p><label for="salasana2">Salasana uudelleen: </label><input type="password" id="salasana2"><span id="virhe-salasana2" class="virhe"></span></p>
+    <p>Sukupuoli:<span id="virhe-sukupuoli" class="virhe"></span></span><br>
+        <input type="radio" id="sukupuoli-mies" name="sukupuoli" value="mies"><label for="sukupuoli-mies">Mies</label><br>
+        <input type="radio" id="sukupuoli-nainen" name="sukupuoli" value="nainen"><label for="sukupuoli-nainen">Nainen</label><br>
+        <input type="radio" id="sukupuoli-muu" name="sukupuoli" value="muu"><label for="sukupuoli-muu">Muu</label><br>
+        <input type="text" id="sukupuoli-mika" class="piilotettu">
+    </p>
+    <p><input type="submit" id="rekisteroidy" value="Rekisteröidy"></p>
+  </form>
+
+  <footer>
+    Ivan Astashov &copy; 2026
+  </footer>
+</body>
+</html>

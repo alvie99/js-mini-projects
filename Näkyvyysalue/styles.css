@@ -1,0 +1,14 @@
+* {
+  font-family: Arial;
+}
+p {
+  font-weight: bold;
+}
+
+#task {
+  width: 95%;
+  background-color: #0f3638;
+  color: white;
+  padding: 10px;
+  line-height: 2em;
+}

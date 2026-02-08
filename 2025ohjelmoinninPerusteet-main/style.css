@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
+
+:root {
+  --bg: #f7fafc;
+  --text: #0f1724;
+  --accent: #70acff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+  padding: 1rem;
+}
+
+/* horizontal nav */
+nav {
+  margin-bottom: 1rem;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+}
+
+/* Headings */
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 0.75rem;
+}
+h2 {
+  margin: 0 0 0.5rem;
+}
+
+/* Cards */
+#kortit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.kortti {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+.kortti img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Links / footer */
+a {
+  color: var(--accent);
+}
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1rem 0;
+  color: #6b7280;
+  border-top: 1px solid #eaeef3;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.75rem;
+  }
+  nav ul {
+    gap: 0.7rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  nav a {
+    padding: 0.6rem 0.9rem;
+  }
+}
+
+/* Container for exercises */
+.container {
+  max-width: 980px;
+  margin: 1rem auto;
+  background: #fff;
+  border-radius: 10 px;
+  padding: 1.1rem 1.1rem;
+  box-shadow: 0 4 px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Container heading */
+.container h1 {
+  font-size: 1.25rem;
+  margin: 0 0 0.8rem;
+}
+
+/* Input in page style */
+.container input[type="text"] {
+  width: min(420px, 100%);
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #eaeef3;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+.container input[type="text"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(112, 172, 255, 0.25);
+}
+
+/* button styles*/
+.container button {
+  display: inline-block;
+  margin: 0.6rem 0.6rem 0 0;
+  padding: 0.55rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.05s ease,
+    opacity 0.15s ease;
+}
+
+.container button:hover {
+  opacity: 0.92;
+}
+
+.container button:active {
+  transform: translateY(1px);
+}
+
+/* result output */
+#output1,
+#akkosteetDiv,
+#countLettersDiv,
+#tekstiDiv,
+#tekstiDiv2,
+#tekstiDiv3 {
+  margin-top: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #eaeef3;
+  background: #f7fafc;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+/* left border for output */
+#output1 {
+  border-left: 4px solid var(--accent);
+}
+
+#tekstiDiv {
+  border-left: 4px solid #3b82f6; /* blue for first text */
+}
+
+#tekstiDiv2 {
+  border-left: 4px solid #22c55e; /* green for second text */
+}
+#tekstiDiv3 {
+  border-left: 4px solid #f59e0b; /* yellow for index output */
+}
+#tekstiDiv4 {
+  border-left: 4px solid #ef4444; /* red for modified text */
+}
+
+/* container paragraphs*/
+.container p {
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+}
+
+/* mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.95rem;
+  }
+
+  .container button {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+/*div for the text output*/
+#tekstiDiv,
+#tekstiDiv2,
+#tekstiDiv3,
+#tekstiDiv4 {
+  white-space: pre-line;
+}
+
+.box {
+  width: 250px;
+  padding: 15px;
+  margin-top: 15px;
+  text-align: center;
+  border: 2px solid #3b82f6;
+  background: #fff;
+  cursor: pointer;
+}
