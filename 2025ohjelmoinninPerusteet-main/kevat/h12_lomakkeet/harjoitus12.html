@@ -17,10 +17,51 @@
 
     <p>Harjoitus 12</p>
 
-    <div class="container">
-      <input type="text" id="textinput" />
-      <div class="box" id="clickBox">Tervehdi</div>
-    </div>
+    <article class="harjoitus">
+      <div class="container">
+        <p>Tehtävä 1</p>
+        <input type="text" id="textinput" />
+        <div class="box" id="clickBox">Tervehdi</div>
+      </div>
+
+      <p id="lowercaseInputContainer">
+        <p>Tehtävä 2</p>
+        <input
+          type="text"
+          id="lowercaseInput"
+          placeholder="Kirjoita tähän jotain ja katso mitä tapahtuu: "
+        />
+      </p>
+
+      <div class="container" id="passwordContainer">
+        <p>Tehtävä 3</p>
+        <input type="password"  id="passwordInput">
+      </div>
+
+      <div id="foodchoice">
+        <p>Tehtävä 4</p>
+        <ul>
+          <li>Makaronilaatikko <input type="checkbox" id="ml" name="food" value="Makaronilaatikko"></li>
+          <li>Jauhelihakeitto <input type="checkbox" id="jlk" name="food" value="Jauhelihakeitto"></li>
+          <li>Kalapuikot <input type="checkbox" id="kp" name="food" value="Kalapuikot"></li>
+          <li>Kanacurry <input type="checkbox" id="kc" name="food" value="Kanacurry"></li>
+        </ul>
+        <p id="selectedFoods"></p>
+      </div>
+
+      <div id="transportChoice">
+        <p>Tehtävä 5 + 6</p>
+        <select name="transport" id="groundWater">
+          <option value="">Valitse...</option>
+          <option value="Autot">Autot</option>
+          <option value="Veneet">Veneet</option>
+        </select>
+        <select name="vehicle" id="vehicleType">
+          <option value="">Valitse...</option>
+        </select>
+      </div>
+      <div id="finalchoice"></div>
+    </article>
 
     <footer>Ivan Astashov &copy; 2026</footer>
   </body>

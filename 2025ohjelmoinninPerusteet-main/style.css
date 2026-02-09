@@ -122,6 +122,17 @@ footer {
   background: #fff;
 }
 
+/* Lowercase and password input: bigger and force lowercase display */
+#lowercaseInput {
+  font-size: 1.1rem;
+  padding: 0.7rem 0.85rem;
+}
+
+#passwordInput {
+  font-size: 1.1rem;
+  padding: 0.7rem 0.85rem;
+}
+
 .container input[type="text"]:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 4px rgba(112, 172, 255, 0.25);
