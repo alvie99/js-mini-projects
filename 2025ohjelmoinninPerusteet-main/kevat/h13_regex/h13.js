@@ -47,8 +47,8 @@ function sensuroida() {
     /c{1,}u{1,}n{1,}t/gi,
     /nig{1,}/gi,
     /p{1,}u{1,}s{1,}s{1,}y/gi,
-    /c\?ck/gi,
-    /fag\?got/gi,
+    /c{1,}o{1,}c{1,}k/gi,
+    /f{1,}a{1,}g{1,}o{1,}t/gi,
     //suomi
     /v{1,}i{1,}t{1,}u/gi,
     /p{1,}e{1,}r{1,}s{1,}e/gi,
@@ -58,8 +58,7 @@ function sensuroida() {
   ];
   let teksti = document.getElementById("sensuroitavaInput").value;
   for (let i = 0; i < kirosanat.length; i++) {
-    const regex = new RegExp(kirosanat[i]);
-    teksti = teksti.replace(regex, "****");
+    teksti = teksti.replace(kirosanat[i], (match) => "*".repeat(match.length));
   }
   document.getElementById("sensuroitavaInput").value = teksti;
 }
