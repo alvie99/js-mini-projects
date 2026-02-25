@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Opettajan esimerkki - harjoitus 16</title>
     <link rel="stylesheet" href="../../style.css" />
+    <script src="h16.js" defer></script>
   </head>
   <body>
     <nav>
@@ -14,7 +15,21 @@
       </ul>
     </nav>
 
-    <p>Tämä harjoitus on vielä työn alla</p>
+    <p>Roboto mini projekti</p>
+
+    <article type="harjoitus">
+      <div class="container">
+        <p>Komento:</p>
+        <input type="text" id="commentInput" />
+        <main class="rButtonRow">
+          <div class="rButton" id="runButton">Suorita</div>
+          <div class="rButton" id="stopButton">Lopeta</div>
+        </main>
+        <aside id="robot">
+          <img src="./kuvat/stand.png" alt="Robotti" />
+        </aside>
+      </div>
+    </article>
 
     <footer>Ivan Astashov &copy; 2026</footer>
   </body>
