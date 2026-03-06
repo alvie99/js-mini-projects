@@ -1,6 +1,6 @@
 function tarkistaMaakoodi() {
   let maakoodi = document.getElementById("maakoodiInput").value;
-  const maakoodinMuoto = /^[A-Z]|[a-z]{3}$/g;
+  const maakoodinMuoto = /^[A-Za-z]{3}$/;
 
   if (maakoodinMuoto.test(maakoodi)) {
     document.getElementById("maakoodibox").style.color = "green";
