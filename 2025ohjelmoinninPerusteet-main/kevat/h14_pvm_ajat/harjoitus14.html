@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Opettajan esimerkki - harjoitus 15</title>
     <link rel="stylesheet" href="../../style.css" />
+    <script src="h14.js" defer></script>
   </head>
   <body>
     <nav>
@@ -14,7 +15,22 @@
       </ul>
     </nav>
 
-    <p>Tämä harjoitus on vielä työn alla</p>
+    <main>
+      <article>
+        <h1>Päivämäärät ja ajat</h1>
+
+        <h2>tehtävä 1</h2>
+        <div id="tekstiDiv">
+          <input type="date" id="getdate" />
+          <button id="button1">Tarkista</button>
+          <p id="dateResult"></p>
+        </div>
+
+        <div id="tekstiDiv2">
+          <div id="clock">--:--</div>
+        </div>
+      </article>
+    </main>
 
     <footer>Ivan Astashov &copy; 2026</footer>
   </body>
