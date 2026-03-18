@@ -1,0 +1,555 @@
+/* Color variables used across the whole page */
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(252, 6%, 83%);
+  --blue-gray: hsl(245, 15%, 58%);
+  --dark-blue-gray: hsl(245, 19%, 35%);
+  --midnight: hsl(248, 70%, 10%);
+  --orange: hsl(7, 88%, 67%);
+  --orange-dark: hsl(7, 71%, 60%);
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-strong: rgba(255, 255, 255, 0.12);
+  --line: rgba(255, 255, 255, 0.18);
+  --error: hsl(7, 88%, 67%);
+}
+
+/* Basic reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main page background and global text setup */
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+  font-family: "Inconsolata", monospace;
+  font-size: 20px;
+  color: var(--white);
+  background-color: var(--midnight);
+  background:
+    url("./LippugeneraattoriAssetit/assets/images/pattern-squiggly-line-top.svg"),
+    url("./LippugeneraattoriAssetit/assets/images/pattern-circle.svg"),
+    url("./LippugeneraattoriAssetit/assets/images/pattern-squiggly-line-bottom-desktop.svg"),
+    url("./LippugeneraattoriAssetit/assets/images/pattern-lines.svg"),
+    url("./LippugeneraattoriAssetit/assets/images/background-desktop.png"),
+    linear-gradient(
+      120deg,
+      hsl(240, 75%, 8%) 0%,
+      hsl(248, 70%, 10%) 45%,
+      hsl(269, 72%, 24%) 100%
+    );
+  background-size:
+    220px auto,
+    240px 240px,
+    820px auto,
+    cover,
+    cover,
+    cover;
+  background-position:
+    top 72px right 40px,
+    right 120px center,
+    left bottom,
+    top center,
+    center,
+    center;
+  background-repeat:
+    no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+}
+
+/* Extra glow layer behind the content */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 17% 82%,
+      rgba(255, 208, 196, 0.28) 0,
+      rgba(255, 171, 148, 0.08) 18%,
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 72% 44%,
+      rgba(119, 27, 255, 0.16) 0,
+      transparent 28%
+    );
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+/* Soft top-to-bottom overlay for depth */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.025),
+    rgba(255, 255, 255, 0)
+  );
+  z-index: 0;
+}
+
+/* Prevent images from breaking layout */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Main centered page container */
+.page {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+.back-link {
+  margin-bottom: 24px;
+}
+
+.back-link a {
+  color: var(--light-gray);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.back-link a:hover {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Shared layout for form and ticket sections */
+.form-view,
+.ticket-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Shared heading area */
+.hero {
+  width: 100%;
+  max-width: 760px;
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+/* Shared logo style */
+.logo,
+.ticket-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+
+/* Main large headings */
+.hero h1,
+.hero h2 {
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  line-height: 1.05;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+/* Secondary text under the headings */
+.subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--light-gray);
+  line-height: 1.4;
+}
+
+/* Form width limiter */
+.ticket-form {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Each form field block */
+.form-group {
+  margin-bottom: 24px;
+}
+
+/* Field label */
+label {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Custom upload area */
+.upload-box {
+  min-height: 170px;
+  border: 2px dashed var(--line);
+  border-radius: 18px;
+  background: var(--glass);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  cursor: pointer;
+  padding: 24px;
+  transition: 0.2s ease;
+}
+
+/* Hover state for upload area */
+.upload-box:hover {
+  background: var(--glass-strong);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Active drag state */
+.upload-box.drag-active {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--orange);
+}
+
+/* Small icon box inside the upload area */
+.upload-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  color: var(--orange);
+  font-size: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Preview image inside the upload box */
+.upload-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Upload helper text */
+.upload-box p {
+  color: var(--light-gray);
+  text-align: center;
+}
+
+/* Small text under the upload area */
+.field-hint {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--light-gray);
+}
+
+/* Shared style for text inputs */
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  height: 60px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--white);
+  font: inherit;
+  padding: 0 18px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+/* Placeholder text style */
+input::placeholder {
+  color: var(--light-gray);
+}
+
+/* Focus style for active inputs */
+input:focus {
+  border-color: var(--orange);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Main submit button */
+.submit-btn {
+  width: 100%;
+  height: 62px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    var(--orange) 0%,
+    var(--orange-dark) 100%
+  );
+  color: var(--midnight);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    filter 0.2s ease;
+}
+
+/* Submit button hover */
+.submit-btn:hover {
+  filter: brightness(1.05);
+}
+
+/* Submit button press effect */
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+/* Download button under the ticket */
+.download-btn {
+  width: min(100%, 320px);
+  min-height: 58px;
+  margin-top: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Download button hover */
+.download-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+/* Download button press effect */
+.download-btn:active {
+  transform: translateY(1px);
+}
+
+/* Error message area under fields */
+.error-message {
+  min-height: 24px;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--error);
+}
+
+/* Utility class used to hide sections */
+.hidden {
+  display: none;
+}
+
+/* Ticket layout */
+.ticket-view {
+  text-align: center;
+}
+
+/* Highlighted name inside headings */
+.hero span {
+  color: var(--orange);
+}
+
+/* Main ticket card container */
+.ticket-card {
+  width: min(100%, 620px);
+  min-height: 280px;
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 96px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  backdrop-filter: blur(10px);
+  color: var(--white);
+}
+
+/* Left part of the ticket content */
+.ticket-main {
+  padding: 28px 24px;
+  text-align: left;
+  color: var(--white);
+}
+
+/* Logo text inside the ticket */
+.ticket-logo {
+  color: var(--white);
+}
+
+/* Date and place text */
+.ticket-date {
+  color: var(--light-gray);
+  margin-top: 6px;
+  margin-bottom: 42px;
+}
+
+/* User row inside the ticket */
+.ticket-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Avatar image in the ticket */
+.ticket-user img {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* User name inside the ticket */
+#ticketNameCard {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--white);
+}
+
+/* GitHub username inside the ticket */
+#ticketGithubCard {
+  color: var(--light-gray);
+}
+
+/* Right side of the ticket with the number */
+.ticket-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 2px dashed rgba(255, 255, 255, 0.24);
+}
+
+/* Rotated ticket number */
+#ticketNumber {
+  transform: rotate(90deg);
+  color: var(--light-gray);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+  body {
+    font-size: 18px;
+    background:
+      url("./LippugeneraattoriAssetit/assets/images/pattern-squiggly-line-top.svg"),
+      url("./LippugeneraattoriAssetit/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"),
+      url("./LippugeneraattoriAssetit/assets/images/background-mobile.png"),
+      linear-gradient(
+        120deg,
+        hsl(240, 75%, 8%) 0%,
+        hsl(248, 70%, 10%) 45%,
+        hsl(269, 72%, 24%) 100%
+      );
+    background-size:
+      118px auto,
+      360px auto,
+      cover,
+      cover;
+    background-position:
+      top 18px right -12px,
+      left bottom -8px,
+      top center,
+      center,
+      center;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  }
+
+  body::before {
+    background:
+      radial-gradient(
+        circle at 14% 82%,
+        rgba(255, 208, 196, 0.22) 0,
+        rgba(255, 171, 148, 0.05) 20%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 78% 78%,
+        rgba(119, 27, 255, 0.12) 0,
+        transparent 22%
+      );
+  }
+
+  .page {
+    padding: 24px 16px 48px;
+  }
+
+  .hero {
+    margin-bottom: 30px;
+  }
+
+  .ticket-card {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-side {
+    min-height: 72px;
+    border-left: none;
+    border-top: 2px dashed rgba(255, 255, 255, 0.24);
+  }
+
+  #ticketNumber {
+    transform: none;
+  }
+
+  #ticketNameCard {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet layout */
+@media (min-width: 701px) and (max-width: 1024px) {
+  body {
+    background:
+      url("./LippugeneraattoriAssetit/assets/images/pattern-squiggly-line-top.svg"),
+      url("./LippugeneraattoriAssetit/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"),
+      url("./LippugeneraattoriAssetit/assets/images/background-tablet.png"),
+      linear-gradient(
+        120deg,
+        hsl(240, 75%, 8%) 0%,
+        hsl(248, 70%, 10%) 45%,
+        hsl(269, 72%, 24%) 100%
+      );
+    background-size:
+      170px auto,
+      620px auto,
+      cover,
+      cover;
+    background-position:
+      top 30px right 12px,
+      left bottom -10px,
+      top center,
+      center,
+      center;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  }
+
+  body::before {
+    background:
+      radial-gradient(
+        circle at 16% 84%,
+        rgba(255, 208, 196, 0.24) 0,
+        rgba(255, 171, 148, 0.06) 20%,
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 76% 72%,
+        rgba(119, 27, 255, 0.14) 0,
+        transparent 24%
+      );
+  }
+}

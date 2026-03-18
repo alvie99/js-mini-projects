@@ -1,8 +1,8 @@
 const minInput = document.getElementById("min");
 const maxInput = document.getElementById("max");
 const numInput = document.getElementById("num");
-const tarkistaBtn = document.getElementById("tarkistaBtn");
-const tyhjennaBtn = document.getElementById("tyhjennaBtn");
+const tarkista = document.getElementById("tarkista");
+const tyhjenna = document.getElementById("tyhjenna");
 const tulosTeksti = document.getElementById("tulosTeksti");
 
 function tarkistaLuku(luku, alaraja, ylaraja) {
@@ -53,5 +53,5 @@ function tyhjennaKentat() {
   tulosTeksti.textContent = "";
 }
 
-tarkistaBtn.addEventListener("click", tarkistus);
-tyhjennaBtn.addEventListener("click", tyhjennaKentat);
+tarkista.addEventListener("click", tarkistus);
+tyhjenna.addEventListener("click", tyhjennaKentat);

@@ -1,7 +1,8 @@
-var min = function (list) {
-  return Math.min(list);
-};
+var min = list => Math.min(...list)
 
-var max = function (list) {
-  return Math.max(list);
-};
+var max = list => Math.max(...list)
+
+return {
+    min,
+    max
+}

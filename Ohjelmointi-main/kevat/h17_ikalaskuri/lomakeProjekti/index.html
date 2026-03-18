@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Conf Ticket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Main page wrapper -->
+    <main class="page">
+      <p class="back-link">
+        <a href="../../../index.html">Back to course</a>
+      </p>
+
+      <!-- Form view: shown first -->
+      <section class="form-view" id="formView">
+        <header class="hero">
+          <p class="logo">Coding Conf</p>
+          <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+          <p class="subtitle">
+            Secure your spot at next year's biggest coding conference.
+          </p>
+        </header>
+
+        <!-- User form -->
+        <form class="ticket-form" id="ticketForm" novalidate>
+          <div class="form-group">
+            <label for="avatar">Upload Avatar</label>
+
+            <!-- Custom file upload box -->
+            <div
+              class="upload-box"
+              id="uploadBox"
+              role="button"
+              tabindex="0"
+              aria-label="Upload avatar"
+            >
+              <input type="file" id="avatar" accept=".jpg,.jpeg,.png" hidden />
+              <div class="upload-icon">Icon</div>
+              <p>Drag and drop or click to upload</p>
+            </div>
+
+            <p class="field-hint">
+              Upload your photo (JPG or PNG, max size: 500KB).
+            </p>
+            <p class="error-message" id="avatarError" aria-live="polite"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" />
+            <p class="error-message" id="nameError" aria-live="polite"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@email.com"
+            />
+            <p class="error-message" id="emailError" aria-live="polite"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="github">GitHub Username</label>
+            <input
+              type="text"
+              id="github"
+              name="github"
+              placeholder="@yourusername"
+            />
+            <p class="error-message" id="githubError" aria-live="polite"></p>
+          </div>
+
+          <button type="submit" class="submit-btn">Generate My Ticket</button>
+        </form>
+      </section>
+
+      <!-- Ticket view: shown after successful submit -->
+      <section class="ticket-view hidden" id="ticketView">
+        <header class="hero">
+          <p class="logo">Coding Conf</p>
+          <h2>
+            Congrats, <span id="ticketNameHeading">Name Here</span>! Your ticket
+            is ready.
+          </h2>
+          <p class="subtitle">
+            We've emailed your ticket to
+            <span id="ticketEmailHeading">email@example.com</span>
+            and will send updates in the run up to the event.
+          </p>
+        </header>
+
+        <article class="ticket-card">
+          <div class="ticket-main">
+            <p class="ticket-logo">Coding Conf</p>
+            <p class="ticket-date">Jan 31, 2025 / Austin, TX</p>
+
+            <div class="ticket-user">
+              <img id="ticketAvatar" src="" alt="User avatar" />
+              <div>
+                <p id="ticketNameCard">Name Here</p>
+                <p id="ticketGithubCard">@username</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ticket-side">
+            <p id="ticketNumber">#01609</p>
+          </div>
+        </article>
+
+        <!-- Download button for the generated ticket -->
+        <button type="button" class="download-btn" id="downloadTicket">
+          Download Ticket
+        </button>
+      </section>
+    </main>
+
+    <!-- Library used to save the ticket as an image -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
